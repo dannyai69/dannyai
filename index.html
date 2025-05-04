@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DANNY AI – Smarter Dating Starts Here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1e1e1e 0%, #121212 100%);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ff3e6c;
+    }
+    .logo span {
+      color: #ffffff;
+    }
+    .hamburger {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: none;
+    }
+    .links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .links a:hover {
+      color: #ff3e6c;
+    }
+    .cta {
+      background: #ff3e6c;
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .cta:hover {
+      background: #e0335f;
+    }
+    .hero-content {
+      max-width: 900px;
+      margin: 3rem auto;
+    }
+    .hero-content h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #d1d1d1;
+    }
+    .cta.big {
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    .hero-image {
+      max-width: 85%;
+      height: auto;
+      margin-top: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+    .hero-image:hover {
+      transform: scale(1.02);
+    }
+    .section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+    .section h3 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #ff3e6c;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .grid article {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .grid article:hover {
+      transform: translateY(-8px);
+    }
+    .grid h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+    .grid p {
+      color: #d1d1d1;
+      font-size: 1rem;
+    }
+    .how ol {
+      list-style: none;
+      counter-reset: my-counter;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .how li {
+      counter-increment: my-counter;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-left: 3rem;
+      color: #d1d1d1;
+    }
+    .how li::before {
+      content: counter(my-counter);
+      position: absolute;
+      left: 0;
+      background: #ff3e6c;
+      color: #ffffff;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .how img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+    .how img:hover {
+      transform: scale(1.02);
+    }
+    .faq details {
+      background: #1e1e1e;
+      margin-bottom: 1.2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    .faq summary {
+      padding: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+    .faq summary:hover {
+      background: #2a2a2a;
+    }
+    .faq p {
+      padding: 1.2rem;
+      color: #d1d1d1;
+      font-size: 1rem;
+    }
+    .signup-form {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .signup-form input {
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 300px;
+      background: #ffffff;
+      color: #121212;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .signup-form input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 62, 108, 0.3);
+    }
+    .signup-form button {
+      background: #ff3e6c;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .signup-form button:hover {
+      background: #e0335f;
+    }
+    .small {
+      text-align: center;
+      color: #d1d1d1;
+      font-size: 0.9rem;
+    }
+    .footer {
+      text-align: center;
+      padding: 2.5rem;
+      background: #1e1e1e;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      color: #ff3e6c;
+      text-decoration: none;
+      margin: 0 0.6rem;
+      transition: color 0.3s ease;
+    }
+    .footer a:hover {
+      color: #e0335f;
+    }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: #1e1e1e;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .links.open {
+        display: flex;
+      }
+      .links a {
+        font-size: 1.2rem;
+        padding: 0.5rem 0;
+      }
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      .hero-image {
+        max-width: 90%;
+      }
+      .section h3 {
+        font-size: 2rem;
+      }
+      .signup-form {
+        flex-direction: column;
+        align-items: center;
+      }
+      .signup-form input {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ­‑‑‑‑‑‑ Header / Hero ‑‑‑‑‑‑‑‑‑‑‑‑‑‑ -->
+  <header class="hero">
+    <nav class="nav">
+      <h1 class="logo">DANNY<span>AI</span></h1>
+      <button id="menuBtn" class="hamburger" aria-label="Toggle menu">☰</button>
+      <ul id="navLinks" class="links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#howitworks">How it works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#signup" class="cta">Join Beta</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero-content">
+      <h2>AI‑powered matches. <br />NO FATTIES.</h2>
+      <p>DANNY AI writes the perfect message you do the SEX.</p>
+      <img src="Danny.jpeg" alt="DANNY AI app preview" class="hero-image" />
+    </section>
+  </header>
+
+  <!-- ­‑‑‑‑‑‑‑ Features ‑‑‑‑‑‑‑‑‑‑‑‑ -->
+  <section id="features" class="section features">
+    <h3>Why DANNY AI?</h3>
+    <div class="grid">
+      <article>
+        <h4>🧠 Snarky Openers</h4>
+        <p>Our AI model gives you the sexiest message to drop  the panties.</p>
+      </article>
+      <article>
+        <h4>⚡ No Fatties Filter</h4>
+        <p>Our sexy-score blocks the undesirables only sexy people make the cut.</p>
+      </article>
+      <article>
+        <h4>🔒 Hide Your Face</h4>
+        <p>Stay anonymous until you’re sure they’re not an uggo. Encrypted DMs, obviously.</p>
+      </article>
+      <article>
+        <h4>Pizza Plans</h4>
+        <p>Get pizza with the sexies only, with pizza for you and your non-ugly match.</p>
+    </article>
+    <article>
+        <h4> No Protection</h4>
+        <p>To use danny AI u must vow to only stick ur penis in with no CONDOM.</p>
+    </article>
+    <article>
+        <h4>13 and over </h4>
+        <p>You must be a 13 year old to get on danny AI and have sex</p>
+    </article>
+    </div>
+  </section>
